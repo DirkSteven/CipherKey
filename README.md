@@ -31,14 +31,19 @@
 
 ## 📈Flowchart
 <p align = "center">
-  <img src = "flowchart.png" width = "300%" height = "300%"> 
+  <img src = "flowchart.png" width = "300%" height = "100%"> 
 </p>
 
 
 
 <br><br>
+
+
+
 ## 💪Key Functions
 <br>
+
+
 ### In EncryptDecryptLib.cpp:
 
 1. <b>`encrypt_text()`</b>: Encrypts a given string by adding a fixed value to each character.
@@ -49,6 +54,9 @@
 6. <b>`readData()`</b>: Reads the contents of a file specified by the file path and returns them as a string.
 
 <br>
+
+
+
 ### In LoginSystem.cpp:
 
 1. <b>`registerUser()`</b>: Registers a new user by adding their username and encrypted password to the user database file.
@@ -57,6 +65,8 @@
 4. <b>`login()`</b>: Authenticates a user by comparing the provided username and encrypted password with the user database file.
 5. <b>`logout()`</b>: Logs out the current user by resetting the logged-in status and clearing the current user information.
 <br>
+
+
 
 ### In PasswordTracker.cpp:
 
