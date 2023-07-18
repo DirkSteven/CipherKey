@@ -1,6 +1,11 @@
 #include "includes/LoginSystem.h"
 #include "includes/PasswordTracker.h"
 #include "includes/EncryptDecryptLib.h"
+
+#include "includes/LoginSystem.cpp"
+#include "includes/PasswordTracker.cpp"
+#include "includes/EncryptDecryptLib.cpp"
+
 #include <iostream>
 #include <string>
 
@@ -43,7 +48,10 @@ int main() {
 
         cout << string(leftPadding, ' ') << ">> Choice: ";
 
+        
         cin >> choice;
+
+  
         cout << "\n";
 
         cin.ignore(); // Ignore remaining characters in input buffer
@@ -64,7 +72,10 @@ int main() {
                     if (!loginSystem.userExists(username))
                         loginSystem.registerUser(username, password);
                     else
-                        cerr << "\t\t\t| User already exists. Try another username. |\n";
+                       
+                        cerr << "\t\t\t| User already exists. Try another username. |\n"; 
+                        cout <<"\t\t\t | ENTER ANY KEY TO CONTINUE |\n";  
+                        
                     cin.ignore();
                     break;
                 case '2':
@@ -80,15 +91,19 @@ int main() {
                         currentUser = username;
                         passwordManager.setCurrentUser(currentUser);
 
-                        cout << "\t\t\t| Logged in successfully! |\n";
+                        cout << "\t\t\t| Logged in successfully! |\n\n\n";
+                        
+                        cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     }
                     cin.ignore();
+                    
                     break;
                 case '3':
                     cout << "\t\t\t\t >> Exiting... <<\n";
                     return 0;
                 default:
                     cout << "\t\t\t| Invalid choice. Please try again. |\n";
+                    break;
             }
         } else {
             switch (choice[0]) {
@@ -113,7 +128,8 @@ int main() {
                         getline(cin, password);
                         passwordManager.addPassword(password);
                         passwordManager.savePasswords();
-                        cout << "\n\t\t\t| New Password: Saved! |\n";
+                        cout << "\n\t\t\t| New Password: Saved! |\n\n\n";
+                        cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     }
                     passwordManager.clearTempPasswords();
                     cin.ignore();
@@ -128,6 +144,7 @@ int main() {
                     item = currentUser + "-" + label;
                     item = edl.encrypt_text(item);
                     passwordManager.updatePassword(item, label, new_password);
+                    cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     cin.ignore();
                     break;
                 case '3':
@@ -141,6 +158,7 @@ int main() {
                     item = edl.encrypt_text(item);
                     passwordManager.deleteItem(item);
                     cout << "\n\t\t\t| Item deleted successfully! |\n";
+                    cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     choice = "777";
                     cin.ignore();
                     break;
@@ -157,10 +175,13 @@ int main() {
                         item = currentUser + "-" + label;
                         item = edl.encrypt_text(item);
                         passwordManager.resetPasswords();
+                        cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     } else if (ans == "N" || ans == "n") {
                         cout << "\n\t\t\t| Password deletion canceled. |\n";
+                        cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     } else {
                         cout << "\n\t\t\t| Invalid input. Password deletion canceled. |\n";
+                        cout <<"\t\t\t| ENTER ANY KEY TO CONTINUE |\n";
                     }
                     cin.ignore();
                     break;
