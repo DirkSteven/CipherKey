@@ -11,8 +11,8 @@
 ## 📐Setup 
 <br>
 
-  1. ###### Clone the repository and unzip all the files.
-  2. ###### Run main .exe 
+  1. #### Clone the repository and unzip all the files.
+  2. #### Run main .exe 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>OR</b>
 
