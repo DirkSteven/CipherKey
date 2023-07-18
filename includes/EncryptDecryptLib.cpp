@@ -1,6 +1,5 @@
 #include "EncryptDecryptLib.h"
 #include <string>
-
 EncryptDecryptLib::EncryptDecryptLib()
 {
     //ctor
@@ -47,7 +46,7 @@ string EncryptDecryptLib::readData(string filePath, string container) {
 
 string EncryptDecryptLib::encrypt_text(string str){
     string rStr = str;
-    int N = size(rStr);
+    int N = str.length();
     for (int i = 0; i < N; i++) {
         int increase = 100;
         rStr[i] += increase;
@@ -78,7 +77,7 @@ string EncryptDecryptLib::reverse_text(string str)
 
 string EncryptDecryptLib::decrypt_text(string str){
    string rStr = str;
-    int N = size(rStr);
+    int N = str.length();
     for (int i = 0; i < N; i++) {
         int increase = 100;
         rStr[i] -= increase;

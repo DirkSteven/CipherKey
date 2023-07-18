@@ -8,7 +8,7 @@ using namespace std;
 EncryptDecryptLib edl;
 
 
-PasswordManager::PasswordManager() : passwordList(nullptr), tempList(nullptr), labelList(nullptr) {}
+PasswordManager::PasswordManager() : passwordList(nullptr), tempList(nullptr) {}
 
 PasswordManager::~PasswordManager() {
     PasswordNode* current = passwordList;
@@ -17,7 +17,6 @@ PasswordManager::~PasswordManager() {
         current = current->next;
         delete temp;
     }
-    database.close();
 }
 
 void PasswordManager::addPassword(const string& password) {
@@ -46,13 +45,7 @@ bool PasswordManager::itemExist(const string& item) {
 
         size_t pos = line.find(",");
         string savedUsername = line.substr(0, pos);
-        string label = line.substr(pos + 1);
-        string tempLabel = label;
-        pos = label.find(",");
-        label = label.substr(0, pos);
-        string passWD = tempLabel.substr(pos + 1);
 
-        string data = label + ": " + passWD;
         if (item == savedUsername) {
             return true;                                      
         }
@@ -79,7 +72,6 @@ void PasswordManager::deleteItem(const string& itemToDelete) {
         if (savedLabel == itemToDelete) {
             labelFound = true;
         } else {
-            // Keep lines that do not contain the item
             lines.push_back(line);
         }
     }
@@ -115,22 +107,18 @@ void PasswordManager::resetPasswords() {
     string line;
     while (getline(file, line)) {
 
-        // cout << line << endl;
         stringstream ss(line);
-
         size_t pos = line.find(",");
+
         string savedUsername = line.substr(0, pos);
+
         string label = line.substr(pos + 1);
-        string tempLabel = label;
         pos = label.find(",");
         label = label.substr(0, pos);
-        string passWD = tempLabel.substr(pos + 1);
-
-        string data = edl.decrypt_text(label) + ": " + edl.decrypt_text(passWD);
 
         pos = savedUsername.find("-");
-        string n_username = savedUsername.substr(0, pos);
 
+        string n_username = savedUsername.substr(0, pos);
         string n_currentUser = currentUser + '-' + edl.decrypt_text(label);
 
         if (edl.decrypt_text(n_username) == n_currentUser)
@@ -190,9 +178,11 @@ void PasswordManager::loadPassword() {
 
         size_t pos = line.find(",");
         string savedUsername = line.substr(0, pos);
+
         string label = line.substr(pos + 1);
         string tempLabel = label;
         pos = label.find(",");
+
         label = label.substr(0, pos);
         string passWD = tempLabel.substr(pos + 1);
 
@@ -214,8 +204,7 @@ void PasswordManager::loadPassword() {
                     current = current->next;
                 }
                 current->next = newNode;
-            }
-                                                        
+            }     
         }
     }
 

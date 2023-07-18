@@ -6,16 +6,6 @@
 
 using namespace std;
 
-class PasswordItem {
-    string label;
-    string data;
-
-    PasswordItem(string label, string data) {
-        this->label = label;
-        this->data = data;
-    }
-};
-
 class PasswordNode {
 public:
     string password;
@@ -30,12 +20,9 @@ class PasswordManager {
 private:
     PasswordNode* passwordList;
     PasswordNode* tempList;
-    PasswordNode* labelList;
 
     string currentUser;
     string db_data = "db/data.csv";
-    
-    ofstream database;
 
 public:
     PasswordManager();
