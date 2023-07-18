@@ -77,11 +77,12 @@
 ## 🧑‍🤝‍🧑Collaborators
 
 
-| Name | Email | Other Contacts/Links | 
-| --- | --- | --- | --- |
-| Dirk Steven E. Javier< | dirkjaviermvp@gmail.com |   <a href = "https://github.com/DirkSteven"> Github </a>
-| Fhil Joshua Caguicla | husphil200@gmail.com | <a href = "https://github.com/HusPhil"> Github</a> 
-| Lance Andrei Espina |  lanceandrei.espina30@gmail.com   |<a href = "https://github.com/LanceAndrei04">Github </a>  |
+| Name                 | Email                      | Other Contacts/Links             |
+| -------------------- | -------------------------- | -------------------------------- |
+| Dirk Steven E. Javier | dirkjaviermvp@gmail.com    | [Github](https://github.com/DirkSteven) |
+| Fhil Joshua Caguicla  | husphil200@gmail.com       | [Github](https://github.com/HusPhil)    |
+| Lance Andrei Espina   | lanceandrei.espina30@gmail.com | [Github](https://github.com/LanceAndrei04) |
+
 
 
 
